@@ -1,5 +1,9 @@
 # Config file
 *.json
+
+# Vim
+*.swp
+
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
