@@ -6,12 +6,14 @@ import (
 )
 
 type Scheduler struct {
-	pollers *lane.PQueue
+	pollerQ *lane.PQueue
 }
 
-func NewScheduler() *Scheduler {
+func NewScheduler(configFileName *string) *Scheduler {
 	s := new(Scheduler)
-	s.pollers = lane.NewPQueue(lane.MINPQ)
+	s.pollerQ = lane.NewPQueue(lane.MINPQ)
+	var config *Config = parse(configFileName)
+	config.getDests() //just a place holder
 	return s
 }
 
