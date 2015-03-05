@@ -8,13 +8,14 @@ import (
 )
 
 type Config struct {
-	DataDestDescs []DataDestDesc
-	PollDescs     []PollDesc
+	ActionDescs     []ActionDesc
+	PollerDescs     []PollerDesc
+	ConnectionDescs []ConnectionDesc
 }
 
-//just a place holder
-func (c *Config) getDests() []DataDestDesc {
-	return c.DataDestDescs
+func (c *Config) getPollers() []Poller {
+	var pollers []Poller
+	return pollers
 }
 
 func parse(configFileName *string) *Config {

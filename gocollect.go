@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	var configFileName *string = flag.String("c", "", "config file")
+	var configFileName *string = flag.String("c", "config.json", "config file")
 	flag.Parse()
 	fmt.Printf("Starting Collector\n")
 	scheduler := NewScheduler(configFileName)
