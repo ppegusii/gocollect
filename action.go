@@ -2,6 +2,7 @@ package main
 
 type ActionDesc struct {
 	ActionType string
+	Arguments  []string
 	Name       string
 	Params     map[string]string
 }
