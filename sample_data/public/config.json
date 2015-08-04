@@ -1,0 +1,29 @@
+{
+  "ActionDescs": [
+    {
+      "ActionType": "WriteToFile",
+      "Arguments": [],
+      "Name": "test",
+      "Params": {
+        "location": "localhost:/tmp/gocollect"
+      }
+    }
+  ],
+  "ConnectionDescs": [],
+  "PollerDescs": [
+    {
+      "ActionNames": {
+        "success": "test"
+      },
+      "Arguments": [
+        "-a"
+      ],
+      "Name": "uname",
+      "Params": {
+        "command": "uname"
+      },
+      "PollType": "Bash",
+      "Schedule": "5000"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "ActionDescs": {
+    "0": {
+      "ActionType": "Bash",
+      "ArgList": [
+        "-a"
+      ],
+      "ArgMap": {
+        "command": "uname"
+      },
+      "Name": "uname",
+      "Reactions": {
+        "success": "test"
+      }
+    },
+    "1": {
+      "ActionType": "WriteToFile",
+      "ArgList": [],
+      "ArgMap": {
+        "location": "localhost:/tmp/gocollect",
+        "append": "true"
+      },
+      "Name": "test",
+      "Reactions": {}
+    }
+  },
+  "ConnectionDescs": [],
+  "ScheduledActions": [
+    {
+      "ID": "0",
+      "Schedule": "5000"
+    }
+  ]
+}

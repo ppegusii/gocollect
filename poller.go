@@ -35,6 +35,10 @@ func NewPollerFactory() *PollerFactory {
 	}
 }
 
+func (this *PollerFactory) Construct(pollerDesc *PollerDesc) Poller {
+	return this.pollerConstructors[pollerDesc.PollType](pollerDesc)
+}
+
 func NewBash(pd *PollerDesc) Poller {
 	return &Bash{
 		command: pd.Params["command"],

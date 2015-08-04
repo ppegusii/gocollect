@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 )
 
@@ -13,8 +14,22 @@ type Config struct {
 	ConnectionDescs []ConnectionDesc
 }
 
-func (c *Config) getPollers() []Poller {
-	var pollers []Poller
+/*
+type Config struct {
+	ActionDescs     []ActionDesc
+	Schedule []PollerDesc
+	ConnectionDescs []ConnectionDesc
+}
+*/
+
+func (this *Config) getPollers() []Poller {
+	var pollers []Poller = make([]Poller, len(this.PollerDescs))
+	var pollerFactory = NewPollerFactory()
+	log.Printf("this.PollerDescs = %+v", this.PollerDescs)
+	for i, pollerDesc := range this.PollerDescs {
+		log.Printf("pollerDesc = %+v", pollerDesc)
+		pollers[i] = pollerFactory.Construct(&pollerDesc)
+	}
 	return pollers
 }
 
